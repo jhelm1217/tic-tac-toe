@@ -138,8 +138,8 @@ function checkWin() {
             return true;
         }
     } 
-    showAlert('DRAW');
     return false;
+    showAlert('DRAW');
  }
 
 
@@ -151,13 +151,15 @@ function checkDraw(){
     // console.log('checkDraw', checkDraw);
     if (squares.every(square => square.innerHTML)) { //if each individual square is filled 
         console.log('squares', squares);
+        draw++;
         document.querySelector('.alert').style.display = 'none'; //This should hide my HTML 
+        updateScore();
         showAlert('DRAW');
-        updateStatusText();
+        // updateStatusText();
         resetGame();
-        return false;
-    } else {
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -166,7 +168,7 @@ function checkDraw(){
 function updateScore() {
     document.getElementById('player1Score').textContent = `Player 1: ${player1Score}`;
     document.getElementById('player2Score').textContent = `Player 2: ${player2Score}`;
-    document.getElementById('draw').textContent = ` Draw: ${draw}`;
+    document.getElementById('draw').textContent = `Draw: ${draw}`;
 }
 
 //resets the game board, clears the board but doesnt erase winning history
