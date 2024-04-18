@@ -137,7 +137,7 @@ function checkWin() {
             }, 500);
             return true;
         }
-    } 
+    }
     return false;
     showAlert('DRAW');
  }
