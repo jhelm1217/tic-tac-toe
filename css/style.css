@@ -1,3 +1,9 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+
 header {
     padding: 50px;
     margin: 50px;
@@ -5,13 +11,23 @@ header {
     font-size: 50px;
     font-style: italic;
     font-family: fantasy;
-    color: color-mix(in srgb-linear, purple 35%, blue 55%);
+    color: indigo;
+    animation-name: hithere;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    /* animation-timing-function: linear; */
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100;
+    background-color: black;
+    background: linear-gradient(217deg, indigo, black, purple);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
 
 #board {
@@ -21,35 +37,221 @@ body {
     align-items: center;
     cursor: pointer;
     border-radius: 10px;
+    animation-name: flip;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+}
+
+.d-none {
+    display: none; /*not going to show up but still leave space*/
+}
+
+h2 {
+    color: hotpink;
+    animation-name: slideIn;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.statusText {
+    color: green;
+    border: 1px solid hotpink;
+    
 }
 
 .square {
     border: 1px solid purple;
     width: 100%;
     height: 100%;
+    margin-bottom: 10px;
     font-size: 80px;
     text-align: center;
-    margin-bottom: 10px;
-
-    /* weight */
+    color: purple;
+    font-family: italic;
 }
-/* .square:hover {
-    background-color: red;
-} */
 
-#resetBoard {
+details {
+    color: hotpink;
+    align-items: left;
+    padding: 10px;
+    border-radius: 3px;
+    padding: 3%;
+    animation-name: bounce-in;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+form {
+    color: hotpink;
+    animation-name: slideIn;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    padding: 5%
+}
+
+#scoreboard {
+    color: hotpink;
+    animation-name: bounce-1;
+    animation-duration: 3s;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 200px;
+}
+h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+p {
+    margin: 5px;
+}
+
+p#player1Score, p#player2Score, p#draw {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#resetBtn {
     color: white;
     background-color: blueviolet;
     margin: 35px;
+    animation-name: rotate-in-up-left;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
-#resetBoard:hover {
-    background-color: red;
+
+
+#submit {
+    border-radius: 50% ;
+    color: white;
+    background-color: indigo;
 }
 
-.red {
-    background-color: red;
+.alert {
+    display: none; /* initial state*/
+    color: white;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); /* center it vertically and horizaontally*/
+    background: linear-gradient(45deg, hotpink,purple, black);
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(o, o, o, 0.1); /* shawdow*/
+    z-index:9999; /*makes it above other elements   */
+    animation-name: hithere;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
 }
-/* 
-#scoreboard {
-} */
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+
+@keyframes bounce-1 {
+    0% {transform: translateY(0); }
+    50% { transform: translateY(-100px); }
+    100% {transform: translateY(0); }
+}
+
+@keyframes hithere {
+    30% { transform: scale(1.2); }
+    40%, 60% { transform: rotate(-20deg) scale(1.2); }
+    50% { transform: rotate(20deg) scale(1.2); }
+    70% { transform: rotate(0deg) scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+@keyframes rotate-in-up-left {
+    0% {
+        transform-origin: left bottom;
+        transform: rotate(90deg);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: left bottom;
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+@keyframes rotate-in-down-left {
+    0% {
+        transform-origin: left bottom;
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+      100% {
+        transform-origin: left bottom;
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+@keyframes flip {
+    0% {
+		transform: perspective(400px) rotateY(0);
+		animation-timing-function: ease-out;
+	}
+	40% {
+		transform: perspective(400px) translateZ(150px) rotateY(170deg);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+		animation-timing-function: ease-in;
+	}
+	80% {
+		transform: perspective(400px) rotateY(360deg) scale(.95);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: perspective(400px) scale(1);
+		animation-timing-function: ease-in;
+	}
+}
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% { transform: scale(.9); }
+      100% { transform: scale(1); }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
