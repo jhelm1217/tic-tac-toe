@@ -64,7 +64,7 @@ form.addEventListener('submit', function(event) {
     } else{
         hideAlert();
         showAlert(`Players are ${player1Input.value} and ${player2Input.value}`);
-        board.classList.remove("d-none")
+        board.classList.remove("d-none");
         init(); //starts the game after players input their names
     }
 });
