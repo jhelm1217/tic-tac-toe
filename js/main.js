@@ -36,7 +36,6 @@ function hideAlert() {
 
 let resetBtn = document.getElementById('resetBtn');
 let currentPlayer;
-let switchPlayers;
 let spaces = Array(9).fill(null);
 // console.log('spaces', spaces);
 let statusText = document.getElementById('statusText');
@@ -98,7 +97,7 @@ function startGame() {
 
 // making squares clickable and defining a win or a draw with the spaces. 
 function handleSquareClick(event) {
-    if (event.target.classList.contains('square')) { //reese helped me with this...? lol
+    if (event.target.classList.contains('square')) { //Reece helped me with this...? lol
         // console.log('event.target');
         const id = parseInt(event.target.id);
         // console.log(event);
@@ -121,7 +120,7 @@ function handleSquareClick(event) {
 //had to call the function, and place another if statemnent so it can show the correct person who won.
 function checkWin() {
     for (let i = 0; i < winningCombinations.length; i++){
-        const [a, b, c] = winningCombinations[i]; //[abc] is the array iteration here since we have a couple arrays for winning combos
+        const [a, b, c] = winningCombinations[i]; //[abc] is the array iteration here since we have a few arrays for winning combos
         if (spaces[a] && spaces[a] === spaces[b] && spaces[a] === spaces[c]) { //checks to see if all three squares are in a winning combination by the same player
             if (currentPlayer === 'X') {
                 player1Score++; //update player's score after winning 
