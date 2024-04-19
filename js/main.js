@@ -24,7 +24,7 @@ function showAlert(message) {
     alert.style.display = 'block';
     setTimeout(() => {
         hideAlert();
-    },2000);
+    },3000);
 }
 
 //Hide Alerts
