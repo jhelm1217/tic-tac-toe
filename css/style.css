@@ -41,7 +41,7 @@ body {
     grid-template-rows: 100px 100px 100px;
     align-items: center;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     animation-name: flip;
     animation-duration: 2s;
     animation-fill-mode: forwards;
@@ -156,6 +156,10 @@ p#player1Score, p#player2Score, p#draw {
     animation-fill-mode: forwards;
 }
 
+footer {
+    color: white;
+    
+}
 
 @keyframes glow {
     from {
